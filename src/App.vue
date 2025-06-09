@@ -4,17 +4,16 @@ import HomeView from "./views/HomeView.vue";
 
 <template>
     <header>
-        <nav class="navbar bg-body-tertiary">
+        <nav class="navbar bg-body-tertiary mb-3">
             <div class="container">
                 <RouterLink class="navbar-brand" to="/">
                     <img
-                        src="@/assets/logo.svg"
+                        src="@/assets/logo-pokeapi.png"
                         alt="Logo"
-                        width="30"
-                        height="24"
+                        width="80"
+                        height="auto"
                         class="d-inline-block align-text-top"
                     />
-                    PokéAPI
                 </RouterLink>
                 <ul
                     class="nav nav-underline d-flex justify-content-center align-items-center"
