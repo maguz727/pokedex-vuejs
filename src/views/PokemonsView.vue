@@ -1,10 +1,6 @@
 <script setup></script>
 <template>
-    <div>
-        <h1>Pokemons</h1>
-    </div>
+    <h1 class="mb-5">Pokemons</h1>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
