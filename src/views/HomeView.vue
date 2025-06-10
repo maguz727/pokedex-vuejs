@@ -1,5 +1,3 @@
-<script setup></script>
-
 <template>
     <h1 class="mb-5">Trabajando con la PokéApi y Vuejs</h1>
     <article class="mx-3">
@@ -29,3 +27,4 @@
         </ul>
     </article>
 </template>
+<script setup></script>

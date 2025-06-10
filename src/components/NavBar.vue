@@ -1,8 +1,5 @@
-<script setup>
-import { RouterLink } from "vue-router";
-</script>
 <template>
-    <nav class="navbar bg-body-tertiary mb-3">
+    <nav class="navbar bg-body-tertiary mb-3 px-4">
         <div class="container">
             <RouterLink class="navbar-brand" to="/">
                 <img
@@ -37,5 +34,6 @@ import { RouterLink } from "vue-router";
         </div>
     </nav>
 </template>
-
-<style scoped></style>
+<script setup>
+import { RouterLink } from "vue-router";
+</script>

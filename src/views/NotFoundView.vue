@@ -1,9 +1,3 @@
-<script setup>
-import { useRouter } from "vue-router";
-
-const router = useRouter();
-</script>
-
 <template>
     <div
         class="not-found d-flex flex-column justify-content-center align-items-center"
@@ -14,6 +8,12 @@ const router = useRouter();
         </button>
     </div>
 </template>
+
+<script setup>
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+</script>
 
 <style scoped>
 .not-found {
