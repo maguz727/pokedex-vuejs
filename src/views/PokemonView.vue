@@ -1,30 +1,21 @@
 <script setup>
-import { ref, onMounted } from "vue";
-import { useRoute, useRouter } from "vue-router";
-import axios from "axios";
+import { onMounted } from "vue";
+import { useRoute } from "vue-router";
+import { usePokemons } from "@/composables/usePokemons";
 
 const route = useRoute();
-const router = useRouter();
 const lastUrl = sessionStorage.getItem("lastUrl") || '/pokemons';
 
+const {pokemon, getPokemon} = usePokemons();
+
+onMounted(() => {
+    getPokemon(route.params.pokemon);
+});
 
 const formatName = (name) => {
     return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
 };
 
-const pokemon = ref([]);
-
-const getData = async () => {
-    try {
-        const { data } = await axios.get(
-            `https://pokeapi.co/api/v2/pokemon/${route.params.pokemon}`
-        );
-        pokemon.value = data;
-    } catch (error) {
-        console.log("Error al obtener la información", error);
-    }
-};
-onMounted(getData);
 </script>
 
 <template>
