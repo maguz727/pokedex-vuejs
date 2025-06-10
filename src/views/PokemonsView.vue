@@ -21,7 +21,7 @@ const formatName = (name) => {
 onMounted(getData);
 </script>
 <template>
-    <h1 class="mb-5">Pokemons</h1>
+    <h1 class="mb-5">Pokémons</h1>
     <div class="d-flex flex-wrap justify-content-center">
         <div
             class="list-group m-1"
@@ -36,8 +36,8 @@ onMounted(getData);
         </div>
     </div>
     <div class="d-flex justify-content-center mt-3 gap-2">
-        <button type="button" class="btn btn-outline-primary">Anterior</button>
-        <button type="button" class="btn btn-outline-primary">Siguiente</button>
+        <button type="button" class="btn btn-outline-primary">Prev</button>
+        <button type="button" class="btn btn-outline-primary">Next</button>
     </div>
 </template>
 

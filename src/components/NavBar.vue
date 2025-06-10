@@ -22,7 +22,7 @@ import { RouterLink } from "vue-router";
                         aria-current="page"
                         to="/"
                         active-class="active"
-                        >Inicio</RouterLink
+                        >Home</RouterLink
                     >
                 </li>
                 <li class="nav-item">
