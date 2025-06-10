@@ -1,30 +1,75 @@
 <template>
-    <h1 class="mb-5">Trabajando con la PokéApi y Vuejs</h1>
-    <article class="mx-3">
+    <div class="container my-5">
+        <h1 class="text-center mb-4">📘 Resumen del Proyecto</h1>
+
         <p>
-            <a href="https://pokeapi.co" target="_blank">PokeAPI</a> es una API
-            RESTful pública y gratuita que proporciona datos detallados del
-            universo Pokémon. Permite acceder a información como:
+            Este proyecto fue desarrollado por
+            <strong>Manuel Guzmán</strong> como una práctica integral para
+            afianzar conocimientos clave del ecosistema <strong>Vue 3</strong>.
+            Puedes ver el repositorio en GitHub aquí:
+            <a href="https://github.com/maguz727" target="_blank">maguz727</a>.
         </p>
-        <ul>
-            <li>Pokémon (estadísticas, tipos, evoluciones)</li>
-            <li>Movimientos</li>
-            <li>Habilidades</li>
-            <li>Objetos</li>
-            <li>Regiones y generaciones</li>
-            <li>Juegos y versiones</li>
-        </ul>
+
+        <h2 class="mt-4">🎯 Objetivo</h2>
         <p>
-            Está pensada para desarrolladores que quieran crear aplicaciones,
-            bots o juegos relacionados con Pokémon, ofreciendo respuestas en
-            formato JSON fáciles de consumir.
+            El objetivo principal es practicar el desarrollo de una SPA (Single
+            Page Application) con Vue 3, consumiendo datos desde la PokéAPI y
+            mostrando un listado de Pokémons con paginación, navegación entre
+            vistas, manejo de errores y carga, y presentación de datos
+            detallados.
         </p>
-        <h4>Características clave:</h4>
+
+        <h2 class="mt-4">🛠️ Tecnologías y Herramientas</h2>
         <ul>
-            <li>Gratuita y sin autenticacion</li>
-            <li>Basada en datos de los videojuegos oficiales</li>
-            <li>Código fuente disponible en GitHub</li>
+            <li>
+                Vue 3 con Composition API y <code>&lt;script setup&gt;</code>
+            </li>
+            <li>Vue Router (para navegación entre vistas)</li>
+            <li>Bootstrap 5 para el diseño responsivo y estilización</li>
+            <li>PokéAPI (https://pokeapi.co) como fuente de datos</li>
         </ul>
-    </article>
+
+        <h2 class="mt-4">📚 Conceptos de Vue Practicados</h2>
+        <ul>
+            <li><code>ref</code> para referencias reactivas</li>
+            <li>
+                <code>onMounted</code> para ejecutar lógica al montar el
+                componente
+            </li>
+            <li>
+                <code>watch</code> para observar cambios en propiedades o
+                variables reactivas
+            </li>
+            <li><code>computed</code> para valores derivados y reactivos</li>
+            <li>
+                <code>defineProps</code> y <code>defineEmits</code> para
+                comunicación entre componentes
+            </li>
+            <li>
+                <code>RouterLink</code> y <code>useRoute</code> de Vue Router
+            </li>
+            <li>
+                Directivas: <code>v-for</code>, <code>v-if</code>,
+                <code>v-bind</code>, <code>v-model</code>, <code>v-on</code>
+            </li>
+        </ul>
+
+        <h2 class="mt-4">🧩 Componentes Desarrollados</h2>
+        <ul>
+            <li><strong>NavBar</strong>: navegación superior</li>
+            <li><strong>PokemonList</strong>: lista de Pokémons</li>
+            <li>
+                <strong>PaginationNavigator</strong>: paginación por bloques
+            </li>
+            <li>
+                <strong>CardPokemon</strong>: tarjeta con detalles del Pokémon
+            </li>
+            <li><strong>LoadingSpinner</strong>: indicador de carga</li>
+            <li>
+                <strong>ErrorAlert</strong>: alerta en caso de error al obtener
+                datos
+            </li>
+        </ul>
+    </div>
 </template>
 <script setup></script>
