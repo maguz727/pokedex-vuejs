@@ -8,7 +8,7 @@ const router = useRouter()
 const start = ref(Number(route.query.offset) || 0);
 const limit = ref(Number(route.query.limit) || 20);
 
-const {pokemons, response, getData} = usePokemons()
+const {pokemons, response, getData, error, isLoading} = usePokemons()
 
 onMounted(() => getData(start.value, limit.value));
 
@@ -46,7 +46,13 @@ const formatName = (name) => {
 
 <template>
     <h1 class="mb-5">Pokémons</h1>
-    <div class="d-flex flex-wrap justify-content-center">
+    <div class="text-center" v-if="isLoading">
+        <div class="spinner-border text-primary loading" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <div v-else-if="error" class="alert alert-danger text-center">{{ error }}</div>
+    <div v-else class="d-flex flex-wrap justify-content-center">
         <div
             class="list-group m-1"
             v-for="(pokemon, index) in pokemons"
@@ -80,4 +86,9 @@ const formatName = (name) => {
     </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.loading {
+    width: 5rem;
+    height: 5rem;
+}
+</style>
