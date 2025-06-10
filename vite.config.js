@@ -15,4 +15,9 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  server: {
+    host: '192.168.1.11', // Aquí pones la IP de tu portátil
+    port: 5173, // O el puerto que desees
+    open: true, // Esto abrirá el navegador automáticamente al iniciar
+  }
 })

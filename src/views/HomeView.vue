@@ -2,7 +2,7 @@
 
 <template>
     <h1 class="mb-5">Trabajando con la PokéApi y Vuejs</h1>
-    <article>
+    <article class="mx-3">
         <p>
             <a href="https://pokeapi.co" target="_blank">PokeAPI</a> es una API
             RESTful pública y gratuita que proporciona datos detallados del

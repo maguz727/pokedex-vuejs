@@ -1,14 +1,18 @@
 <script setup>
 import { RouterLink, useRoute, useRouter } from "vue-router";
 import { onMounted, ref, watch } from "vue";
-import { usePokemons } from '../composables/usePokemons'
+import { usePokemons } from "../composables/usePokemons";
+import LoadingSpinner from "@/components/LoadingSpinner.vue";
+import ErrorAlert from "@/components/ErrorAlert.vue";
+import PokemonList from "@/components/PokemonList.vue";
+import PaginationButtons from "@/components/PaginationButtons.vue";
 
 const route = useRoute();
-const router = useRouter()
+const router = useRouter();
 const start = ref(Number(route.query.offset) || 0);
 const limit = ref(Number(route.query.limit) || 20);
 
-const {pokemons, response, getData, error, isLoading} = usePokemons()
+const { pokemons, response, getData, error, isLoading } = usePokemons();
 
 onMounted(() => getData(start.value, limit.value));
 
@@ -26,7 +30,7 @@ const prev = () => {
 
 watch(start, () => {
     getData(start.value, limit.value);
-    
+
     router.replace({
         path: "/pokemons",
         query: { offset: start.value, limit: limit.value },
@@ -37,53 +41,19 @@ watch(start, () => {
         `/pokemons?offset=${start.value}&limit=${limit.value}`
     );
 });
-
-const formatName = (name) => {
-    return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
-};
-
 </script>
 
 <template>
     <h1 class="mb-5">Pokémons</h1>
-    <div class="text-center" v-if="isLoading">
-        <div class="spinner-border text-primary loading" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-    </div>
-    <div v-else-if="error" class="alert alert-danger text-center">{{ error }}</div>
-    <div v-else class="d-flex flex-wrap justify-content-center">
-        <div
-            class="list-group m-1"
-            v-for="(pokemon, index) in pokemons"
-            :key="index"
-        >
-            <RouterLink
-                class="list-group-item list-group-item-action list-group-item-warning"
-                :to="`/pokemons/${pokemon.name}`"
-            >
-                {{ formatName(pokemon.name) }}
-            </RouterLink>
-        </div>
-    </div>
-    <div class="d-flex justify-content-center mt-3 gap-2">
-        <button
-            type="button"
-            class="btn btn-outline-primary"
-            @click="prev"
-            :disabled="!response?.previous"
-        >
-            Prev
-        </button>
-        <button
-            type="button"
-            class="btn btn-outline-primary"
-            @click="next"
-            :disabled="!response?.next"
-        >
-            Next
-        </button>
-    </div>
+    <LoadingSpinner v-if="isLoading" />
+    <ErrorAlert v-else-if="error" :error="error" />
+    <PokemonList v-else :pokemons="pokemons" />
+    <PaginationButtons
+        @prev="prev"
+        @next="next"
+        :has-prev="response?.previous"
+        :has-next="response?.next"
+    />
 </template>
 
 <style scoped>
