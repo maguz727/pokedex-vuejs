@@ -1,10 +1,12 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import { RouterLink, useRoute, useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import axios from "axios";
 
 const route = useRoute();
 const router = useRouter();
+const lastUrl = sessionStorage.getItem("lastUrl") || '/pokemons';
+
 
 const formatName = (name) => {
     return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
@@ -71,7 +73,7 @@ onMounted(getData);
         </div>
     </div>
     <div class="d-flex justify-content-center mt-3 gap-2">
-        <RouterLink class="btn btn-outline-primary" to="/pokemons">Back</RouterLink>
+        <RouterLink :to="lastUrl" class="btn btn-outline-primary">Back</RouterLink>
     </div>
 </template>
 
