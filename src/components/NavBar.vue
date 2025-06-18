@@ -30,6 +30,14 @@
                         >Pokemons</RouterLink
                     >
                 </li>
+                <li class="nav-item">
+                    <RouterLink
+                        class="nav-link p-2"
+                        to="/favorites"
+                        active-class="active"
+                        >Favorites</RouterLink
+                    >
+                </li>
             </ul>
         </div>
     </nav>
