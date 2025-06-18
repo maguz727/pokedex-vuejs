@@ -1,6 +1,6 @@
 import { Alert } from "bootstrap";
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 export const useFavoriteStore = defineStore("favorites", () => {
 	const favorites = ref([]);
@@ -34,11 +34,14 @@ export const useFavoriteStore = defineStore("favorites", () => {
         }
     }
 
+    const favoriteCount = computed(() => favorites.value.length)
+
 	return {
 		favorites,
 		addFavorites,
 		deleteFavorite,
         isFavorite,
-        toggleFavorite
+        toggleFavorite,
+        favoriteCount
 	};
 });
